@@ -1,0 +1,844 @@
+<html>
+  <head>
+    <title>Wonder Wild Zoo</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"/>
+    <link rel="style.css" />
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto", sans-serif;
+        color: white;
+        background: #000;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 50px;
+        background: rgba(0, 0, 0, 0.7);
+      }
+
+      .navbar .logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .navbar .logo i {
+        font-size: 24px;
+        margin-right: 10px;
+      }
+
+      .navbar .nav-links {
+        display: flex;
+        gap: 50px;
+      }
+
+      .navbar .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+      }
+
+      .navbar .buy-tickets {
+        background: #8bc34a;
+        padding: 10px 20px;
+        border-radius: 5px;
+        color: black;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .hero {
+        position: relative;
+        height: 100vh;
+        background: url("image/elephant.jpg") no-repeat center/cover;
+      }
+
+      .hero .content {
+        position: absolute;
+        top: 300px;
+        left: 50px;
+      }
+
+      .hero .content h1 {
+        font-size: 60px;
+        margin: 0;
+      }
+
+      .hero .content p {
+        font-size: 18px;
+        margin-top: 10px;
+        max-width: 500px;
+      }
+
+      .title {
+        font-size: 24px;
+        margin-top: 50px;
+        margin-left: 4%;
+        text-align: left;
+      }
+
+      .places {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        margin-top: 70px;
+      }
+
+      .place {
+        background-color: #333;
+        border-radius: 10px;
+        overflow: hidden;
+        width: 200px;
+      }
+
+      .place img {
+        width: 100%;
+        height: auto;
+      }
+
+      .place-text {
+        padding: 10px;
+      }
+
+      .place-title {
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .place-subtitle {
+        font-size: 14px;
+        color: #ccc;
+      }
+
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 40px;
+      }
+
+      .mission-statement {
+        background-color: black;
+      }
+
+      .mission-statement .text {
+        max-width: 50%;
+      }
+
+      .mission-statement h1 {
+        font-size: 2em;
+        margin-bottom: 20px;
+      }
+
+      .mission-statement p {
+        font-size: 1em;
+        line-height: 1.5;
+        margin-bottom: 20px;
+      }
+
+      .mission-statement button {
+        background-color: #d2691e;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1em;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      .bird-image {
+        max-width: 50%;
+        text-align: right;
+      }
+
+      .bird-image img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .subscribe-section {
+        background-color: black;
+      }
+
+      .subscribe-section .text {
+        max-width: 50%;
+      }
+
+      .subscribe-section h2 {
+        font-size: 2em;
+        margin-bottom: 20px;
+      }
+
+      .subscribe-section p {
+        font-size: 1em;
+        line-height: 1.5;
+        margin-bottom: 20px;
+      }
+
+      .subscribe-section input[type="email"] {
+        padding: 10px;
+        font-size: 1em;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-right: 10px;
+      }
+
+      .subscribe-section button {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1em;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      .penguin-image {
+        max-width: 50%;
+        text-align: left;
+      }
+
+      .penguin-image img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .container1 {
+        display: flex;
+        justify-content: space-between;
+        padding: 50px;
+      }
+
+      .left-section {
+        max-width: 40%;
+      }
+
+      .left-section h1 {
+        font-size: 3em;
+        margin: 0;
+      }
+
+      .left-section h1 span {
+        font-size: 0.5em;
+        vertical-align: super;
+      }
+
+      /* about us page start */
+      .description {
+        font-size: 1em;
+        line-height: 1.5em;
+      }
+
+      .map {
+        position: relative;
+        max-width: 30%;
+      }
+
+      .map img {
+        width: 100%;
+      }
+
+      .right-section {
+        max-width: 25%;
+      }
+
+      .video,
+      .agents {
+        background-color: #ffffff;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 20px;
+      }
+
+      .video img,
+      .agents img {
+        width: 100%;
+        display: block;
+      }
+
+  
+
+      .agents {
+        padding: 20px;
+        text-align: center;
+        color: #3b5a40;
+      }
+
+      .agents h3 {
+        margin: 0 0 10px;
+        font-size: 1.2em;
+      }
+
+      .agents button {
+        background-color: #3b5a40;
+        color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+
+      /* why visit our zoo? */
+      .container3 {
+        max-width: 1200px;
+        margin: 20px 10px;
+        padding-left: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        font-size: 28px;
+        color: #ffffff;
+        margin-bottom: 20px;
+      }
+
+      .contents {
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .contents img {
+        max-width: 50%;
+        margin-top: 5%;
+        border-radius: 8px;
+        margin-right: 40px;
+      }
+
+      .contents ul {
+        list-style-type: disc;
+        padding-left: 60px;
+      }
+
+      .contents li {
+        margin-bottom: 10px;
+        line-height: 1.6;
+      }
+
+      .contents li strong {
+        font-weight: bold;
+      }
+
+      /* end of the why  visit zoo? */
+
+      /* strat timing */
+      .container4 {
+        display: flex;
+        padding: 50px;
+      }
+
+      .tabs {
+        display: flex;
+        border-bottom: 2px solid #333;
+        margin-bottom: 20px;
+      }
+
+      .tab {
+        padding: 10px 20px;
+        cursor: pointer;
+        color: #fff;
+      }
+
+      .tab.active {
+        padding-left: 50px;
+        color: white;
+        font-size: 30px;
+        font-weight: bold;
+      }
+
+      .contente {
+        display: flex;
+        width: 100%;
+      }
+
+      .image {
+        flex: 1;
+      }
+
+      .image img {
+        width: 100%;
+        height: 79%;
+        border-radius: 8px;
+      }
+
+      .details {
+        flex: 1;
+        padding-left: 20px;
+      }
+
+      .details ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .details ul li {
+        margin-bottom: 10px;
+      }
+
+      .details ul li span {
+        font-weight: bold;
+      }
+
+      /* end timing */
+
+      /* start footers css */
+
+      .footer {
+        background-color: black;
+        color: white;
+        padding: 20px 0;
+        display: flex;
+        justify-content: space-around;
+      }
+
+      .footer-column {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .footer-column h3 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 16px;
+      }
+
+      .footer-column li {
+        margin-bottom: 5px;
+      }
+
+      .footer-column a {
+        color: white;
+        text-decoration: none;
+      }
+
+      .footer-column a:hover {
+        text-decoration: underline;
+      }
+
+      .footer-bottom {
+        background-color: #f2f2f2;
+        color: black;
+        text-align: center;
+        padding: 10px 0;
+        font-size: 12px;
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 10px;
+      }
+
+      .social-icons i {
+        color: white;
+        font-size: 16px;
+      }
+
+      .map {
+        position: relative;
+        max-width: 30%;
+        flex: 1 1 300px; 
+        margin: 20px 0; 
+      }
+
+      .map iframe {
+        width: 100%;
+        height: 400px;
+        border: 0;
+        border-radius: 8px;
+      }
+      /* end footers css */
+        </style>
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="logo">
+        <i class="fas fa-paw"></i>
+        <span>Zoo: A Heaven Of The Earth</span>
+      </div>
+      <div class="nav-links">
+        <a href="animal.html">Animals</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="tickit.html">Buy Tickit</a>
+        <a href="table.html">table</a>
+      </div>
+      <a href="tickit.html" class="buy-tickets">Buy Tickets</a>
+    </div>
+    <div class="hero">
+      <div class="content">
+        <h1>Zoo: A Heaven Of The Earth</h1>
+        <p>
+          If you have ever visited any zoo, you must have your own experiences.
+          The description of your experience will help the kids to know the
+          benefits of visiting a zoo.
+        </p>
+        <p>
+          And if you are not aware of the facts required for writing an essay on
+          a visit to a zoo, here are the key points that will help you write the
+          essay.
+        </p>
+      </div>
+    </div>
+    <div class="title">About Animals</div>
+
+    <div class="places">
+      <div class="place">
+        <img
+          alt="Image of a waterfall in a forest"
+          height="300"
+          src="image/zebra.jpg"
+          width="200"
+        />
+        <div class="place-text">
+          <div class="place-title">Zebra</div>
+          
+        </div>
+      </div>
+      <div class="place">
+        <img
+          alt="Image of a beach with tall trees"
+          height="300"
+          src="image/deer.jpg"
+          width="200"
+        />
+        <div class="place-text">
+          <div class="place-title">Deer</div>
+         
+        </div>
+      </div>
+      <div class="place">
+        <img
+          alt="Image of a waterfall with greenery"
+          height="300"
+          src="image/ele.jpg"
+          width="200"
+        />
+        <div class="place-text">
+          <div class="place-title">Elephant</div>
+          
+        </div>
+      </div>
+
+      <div class="place">
+        <img
+          alt="Image of a waterfall with greenery"
+          height="300"
+          src="image/kangaru.jpg"
+          width="200"
+        />
+        <div class="place-text">
+          <div class="place-title">Kangaroo</div>
+          
+        </div>
+      </div>
+
+      <div class="place">
+        <img
+          alt="Image of a lake surrounded by trees"
+          height="300"
+          src="image/panda.jpg"
+          width="200"
+        />
+        <div class="place-text">
+          <div class="place-title">Panda</div>
+          
+        </div>
+      </div>
+    </div>
+    <br />
+
+    <div class="places">
+      <div class="place">
+        <img
+          alt="Image of a waterfall in a forest"
+          height="300"
+          src="image/raino.jpg"
+          width="200"
+        />
+        <div class="place-text">
+          <div class="place-title">Rhinoceros</div>
+          
+        </div>
+      </div>
+      <div class="place">
+        <img
+          alt="Image of a beach with tall trees"
+          height="300"
+          src="image/buffelo.jpeg"
+          width="200"
+        />
+        <div class="place-text">
+          <div class="place-title">Cape Buffalo</div>
+          
+        </div>
+      </div>
+      <div class="place">
+        <img
+          alt="Image of a waterfall with greenery"
+          height="300"
+          src="image/hipo.jpg"
+          width="200"
+        />
+        <div class="place-text">
+          <div class="place-title">Hippos</div>
+          <
+        </div>
+      </div>
+
+      <div class="place">
+        <img
+          alt="Image of a waterfall with greenery"
+          height="300"
+          src="image/jiraf.jpeg"
+          width="200"
+        />
+        <div class="place-text">
+          <div class="place-title">ggiraffes</div>
+          
+        </div>
+      </div>
+
+      <div class="place">
+        <img alt="Image of a lake surrounded by trees" height="300"
+        src="image/turtle.jpg" 200" />
+        <div class="place-text">
+          <div class="place-title">turtle</div>
+          
+        </div>
+      </div>
+    </div>
+    <br />
+
+    <div class="mission-statement container">
+      <div class="text">
+        <h1>Contact</h1>
+        <p>
+          <br />
+          Email : support@aazp.in<br />
+          Phone : 044 - 29542301<br />
+          Address: SAN FRANCISCO ZOO,<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Grand
+          Southern Trunk Rd,<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vandalur,
+          Tamil Nadu 600048
+        </p>
+        <br />
+        <button>Support us </button>
+      </div>
+      <div class="bird-image">
+        <img
+          alt="Colorful bird with a large beak"
+          height="400"
+          src="image/bird.png"
+          width="600"
+        />
+      </div>
+    </div>
+    <div class="subscribe-section container">
+      <div class="penguin-image">
+        <img
+          alt="Group of penguins standing together"
+          height="400"
+          src="image/lepard.png"
+          width="600"
+        />
+      </div>
+      <div class="text">
+        <h2>Subscribe</h2>
+        <p>
+          Don't miss any of the fun! Subscribe to "ANIMAIL" for the latest Zoo
+          news, specials and events delivered right to your inbox.
+        </p>
+        <input placeholder="Enter email address" type="email" />
+        <button>Sign up</button>
+      </div>
+    </div>
+    <div class="container1">
+      <div class="left-section">
+        <h1>About us</h1>
+
+        <p class="description">
+          Arignar Anna Zoological Park is one of the modern and scientifically
+          managed Zoos of the Country with 259 full time staff and additional
+          contract workers. This Zoological Park is the pride of the Tamil Nadu.
+          It has attained excellence in the Conservatory Breeding Programme for
+          endangered species and also in the field of Zoo education by creating
+          awareness about the conservation of natural resources. The functions
+          carried out in the Zoo include animal welfare, commissary (store),
+          transport, research, education and awareness, veterinary,
+          horticulture, security and sanitation and Zoo administration. The Zoo
+          has a well-equipped Zoo kitchen, Zoo hospital and quarantine area
+          facility. A Zoo school was opened in the year 1998 for the teachers,
+          students and general public where regular Zoo education and
+          conservation programmes are conducted. The Zoo has adequate number of
+          battery operated vehicles and road trains to transport visitors to the
+          animal area through the network of internal roads. Several service
+          roads have been laid for serving the animal enclosures.
+        </p>
+        <br />
+      </div>
+      <div class="map">
+        <!-- Embedded Google Map -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.5902325249062!2d70.74317253749813!3d22.293506879775947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959cbdf25905cbd%3A0x459cad68076e7af3!2sT.N.%20Rao%20College!5e0!3m2!1sen!2sin!4v1728050597976!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="right-section">
+        <div class="video">
+          <img
+            alt="A beautiful house in a snowy forest"
+            height="200"
+            src="image/entery.jpeg"
+            width="300"
+          />
+          <div class="play-button">
+            <i class="fas fa-play-circle"> </i>
+          </div>
+        </div>
+        <div class="agents">
+          <h3>Visite new world</h3>
+          <img
+            alt="Two real estate agents"
+            height="200"
+            src="image/our.jpeg"
+            width="300"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="container3">
+      <h1>Why visit Schonbrunn Zoo?</h1>
+      <div class="contents">
+        <img alt="" height="350" src="image/elephant.jpg" width="900" />
+        <ul>
+          <li>
+            <strong> Diversity of wildlife: </strong>
+            From the Rainforest House to the Polarium, the zoo offers immersive
+            habitats that showcase the beauty and complexity of wildlife.
+          </li>
+          <li>
+            <strong> Commitment to conservation: </strong>
+            The Schoenbrunn Zoo actively participates in conservation
+            initiatives, including breeding programs for endangered species and
+            raising awareness about the challenges faced by many animals in the
+            wild.
+          </li>
+          <li>
+            <strong> Educational experience: </strong>
+            The zoo’s interactive exhibits, guided tours, and informative
+            signage offer insights into animal behavior, conservation issues,
+            and the importance of biodiversity, making it a valuable learning
+            experience for families and individuals alike.
+          </li>
+          <li>
+            <strong> Historical significance: </strong>
+            As one of the world's oldest zoos, Schonbrunn Zoo has a rich history
+            dating back to the 18th century. Visiting the zoo would also allow
+            you to gain insight into the evolution of zoological practices and
+            the zoo's role in Austrian imperial history.
+          </li>
+          <li>
+            <strong> Entertainment for all ages: </strong>
+            Schonbrunn Zoo caters to a wide audience with a variety of
+            attractions. The Panorama Train provides a leisurely way to explore
+            the extensive grounds, making it an enjoyable outing for families
+            and animal enthusiasts.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <div class="tab active">Timings</div>
+    </div>
+    <div class="container4">
+      <div class="image">
+        <img alt="" height="100" src="image/deer.jpg" width="500" />
+      </div>
+      <div class="details">
+        <ul>
+          <li>
+            <span> January: </span>
+            9 AM to 4:30 PM
+          </li>
+          <li>
+            <span> February: </span>
+            9 AM to 5 PM
+          </li>
+          <li>
+            <span> March: </span>
+            9 AM to 5:30 PM
+          </li>
+          <li>
+            <span> April to September: </span>
+            9 AM to 6:30 PM
+          </li>
+          <li>
+            <span> October (until daylight saving time ends): </span>
+            9 AM to 5:30 PM
+          </li>
+          <li>
+            <span> October to December: </span>
+            9 AM to 4:30 PM
+          </li>
+        </ul>
+        <p>
+          <span> Open: </span>
+          throughout the year
+        </p>
+        <p>
+          <span> Duration of visit: </span>
+          3 to 4 hours
+        </p>
+        <p>
+          <span> Best time to visit: </span>
+          Early in the morning, as some sections begin closing up to an hour
+          before the closing time.
+        </p>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer">
+        <ul class="footer-column">
+          <h3>About</h3>
+          <li><a href="#">About the Zoo</a></li>
+          <li><a href="#">History</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Joint Zoo Committee</a></li>
+        </ul>
+        <ul class="footer-column">
+          <h3>Resources</h3>
+          <li><a href="#">Subscribe</a></li>
+          <li><a href="#">Financials</a></li>
+          <li><a href="#">Associations</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+        <ul class="footer-column">
+          <h3>Connect</h3>
+          <li><a href="#">Jobs & Internships</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Stay Connected</a></li>
+          <li class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        SAN FRANCISCO ZOO | SLOAT BLVD. @ THE GREAT HIGHWAY SAN FRANCISCO, CA
+        94132 | (415) 753-7080
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+.hero {
+            position: relative;
+            height: 100vh;
+            background: url('elephant.jpg') no-repeat center center/cover;
+        }
+        .hero .content {
+            position: absolute;
+            bottom: 50px;
+            left: 50px;
+        }
+        .hero .content h1 {
+            font-size: 60px;
+            margin: 0;
+        }
+        .hero .content p {
+            font-size: 18px;
+            margin-top: 10px;
+            max-width: 500px;
+        }
+        .title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .places {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .place {
+            background-color: #333;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 200px;
+        }
+        .place img {
+            width: 100%;
+            height: auto;
+        }
+        .place-text {
+            padding: 10px;
+        }
+        .place-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .place-subtitle {
+            font-size: 14px;
+            color: #ccc;
+        }

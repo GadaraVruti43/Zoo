@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Form Input</title>
+     <style>
+          body {
+               font-family: Arial, sans-serif;
+               background-image: url('image/elephant.jpg');
+               background-size: cover;
+               display: flex;
+               flex-direction: column;
+               justify-content: center;
+               align-items: center;
+               height: 100vh;
+               margin-top: 3%;
+               overflow-x: hidden;
+          }
+
+          .form-container {
+               background-color: rgba(255, 255, 255, 0.2);
+               padding: 20px;
+               border-radius: 10px;
+               box-shadow: 0 0 10px rgba(2, 1, 1, 0.5);
+               margin-bottom: 20px;
+               max-width: 400px;
+               width: 100%;
+          }
+
+          .form-row {
+               display: flex;
+               justify-content: space-between;
+               margin-bottom: 10px;
+          }
+
+          .form-container input[type="text"],
+          .form-container input[type="email"],
+          .form-container input[type="number"],
+          .form-container input[type="date"],
+          .form-container input[type="time"] {
+               padding: 10px;
+               margin: 5px 0;
+               border: 1px solid #ccc;
+               border-radius: 5px;
+               box-sizing: border-box;
+          }
+
+          .form-container label {
+               color: white;
+               font-weight: bold;
+               display: block;
+               margin: 10px 0 5px;
+          }
+
+          .form-container .confirm-button {
+               background-color: #4CAF50;
+               color: white;
+               padding: 10px;
+               border: none;
+               border-radius: 5px;
+               cursor: pointer;
+               width: 100%;
+               margin-top: 10px;
+          }
+     </style>
+</head>
+
+<body>
+     <div class="form-container">
+          <h1 style="text-align: center; color: #aeb4ff; ">Tickets Booking </h1>
+
+          <form action="connection.php" method="post">
+               <div class="form-row">
+                    <div style="width: calc(50% - 10px);">
+                         <label for="visit_date">Visit Date:</label>
+                         <input type="date" name="visit_date" id="visit_date">
+
+                    </div>
+                    <div style="width: calc(50% - 10px);">
+                         <label for="current_tim">Time:</label>
+                         <input type="time" id="current_tim" name="current_tim" >
+                    </div>
+               </div>
+
+               <div class="form-row">
+                    <div style="width: calc(50% - 10px);">
+                         <label for="first_name">First Name:</label>
+                         <input type="text" id="first_name" name="first_name" placeholder="First name" required>
+                    </div>
+                    <div style="width: calc(50% - 10px);">
+                         <label for="last_name">Last Name:</label>
+                         <input type="text" id="last_name" name="last_name" placeholder="Last name" required>
+                    </div>
+               </div>
+
+               <div class="form-row">
+                    <div style="width: calc(50% - 10px);">
+                         <label for="adults">Number of Adults:</label>
+                         <input type="number" id="adults" name="adults" min="1" placeholder="Enter number of adults" required>
+                    </div>
+                    <div style="width: calc(50% - 10px);">
+                         <label for="children">Number of Children:</label>
+                         <input type="number" id="children" name="children" min="0" placeholder="Enter number of children">
+                    </div>
+               </div>
+
+               <div class="form-row">
+                    <div style="width: calc(50% - 10px);">
+                         <label for="phone_number">Mobile Number:</label>
+                         <input type="text" maxlength="10" id="phone_number" name="phone_number" placeholder="Enter mobile number" required>
+                    </div>
+                    <div style="width: calc(50% - 10px);">
+                         <label for="town">Town:</label>
+                         <input type="text" id="town" name="town" placeholder="Enter town" required>
+                    </div>
+               </div>
+
+               <label for="aadhar">Aadhaar Card Number:</label>
+               <input type="text" id="aadhar" name="aadhar" maxlength="12" placeholder="Enter 12-digit Aadhaar number" required>
+
+               <button type="submit" class="confirm-button">Confirm</button>
+          </form>
+     </div>
+
+     <script>
+          window.onload = function () {
+               const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+               document.getElementById('current_tim').value = currentTime;
+          }
+     </script>
+</body>
+
+</html>

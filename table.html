@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saved Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('image/elephant.jpg');
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: top;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            display: none; /* Initially hidden */
+        }
+        .login-container h2 {
+            margin-bottom: 20px;
+        }
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .login-container button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .login-container button:hover {
+            background-color: #45a049;
+        }
+        .result-container {
+            background-color: rgba(255, 255, 255, 0.395);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 1200px;
+            overflow-x: auto;
+            display: none; /* Initially hidden */
+        }
+        .result-container table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 16px;
+        }
+        .result-container thead {
+            background-color: #4CAF50;
+            color: rgb(201, 215, 255);
+        }
+        .result-container th,
+        .result-container td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #8381b0;
+        }
+        .result-container th {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .result-container tbody tr:nth-child(even) {
+            background-color: #ebfaf9;
+        }
+        .result-container tbody tr:hover {
+            background-color: #ccf5ff;
+        }
+        .result-container .delete-button {
+            background-color: #f44336;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .result-container .delete-button:hover {
+            background-color: #d32f2f;
+        }
+        .result-container .delete-button:focus {
+            outline: none;
+        }
+        @media screen and (max-width: 600px) {
+            .result-container th, .result-container td {
+                padding: 8px;
+            }
+            .result-container table {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container" id="login-container">
+        <h2>Zoo:A Heaven Of The Earth</h2>
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button onclick="login()">Login</button>
+        <p id="error-message" style="color: red; display: none;">Incorrect username or password!<br>If you are member of zoo, then try to login.</p>
+    </div>
+
+    <div class="result-container" id="result-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Visit Date</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Adults</th>
+                    <th>Children</th>
+                    <th>Phone Number</th>
+                    <th>Town</th>
+                    <th>Aadhaar Card Number</th>
+                    <th>Current Time</th>
+                    <th>Payment API ID</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="data-table-body">
+                <!-- Data rows will be inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Function to handle login
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('error-message');
+
+            if (username === 'vruti' && password === 'vruti') {
+                document.getElementById('login-container').style.display = 'none'; // Hide login form
+                document.getElementById('result-container').style.display = 'block'; // Show table
+                loadData(); // Load the data after successful login
+            } else {
+                errorMessage.style.display = 'block'; // Show error message
+            }
+        }
+
+        // Function to load data into the table
+        function loadData() {
+            const savedData = JSON.parse(localStorage.getItem('formData')) || [];
+            const tableBody = document.getElementById('data-table-body');
+            tableBody.innerHTML = ''; // Clear any existing data
+
+            savedData.forEach((data, index) => {
+                const row = document.createElement('tr');
+                
+                row.innerHTML = `
+                    <td>${data.visitDate}</td>
+                    <td>${data.firstName}</td>
+                    <td>${data.lastName}</td>
+                    <td>${data.adults}</td>
+                    <td>${data.children}</td>
+                    <td>${data.phoneNumber}</td>
+                    <td>${data.town}</td>
+                    <td>${data.aadhar}</td>
+                    <td>${data.currentTime}</td>
+                    <td>${data.paymentId}</td>
+                    <td><button class="delete-button" onclick="deleteData(${index})">Delete</button></td>
+                `;
+                
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Function to delete a specific data entry
+        function deleteData(index) {
+            let savedData = JSON.parse(localStorage.getItem('formData')) || [];
+            savedData.splice(index, 1); // Remove the data at the specified index
+            localStorage.setItem('formData', JSON.stringify(savedData)); // Update localStorage
+            loadData(); // Reload the data to reflect changes
+        }
+
+        // Display login form on page load
+        window.onload = function() {
+            document.getElementById('login-container').style.display = 'block'; // Show login form
+        }
+    </script>
+</body>
+</html>
